@@ -45,7 +45,7 @@ export default function Team() {
         </section>
 
         {/* Founders */}
-        <section className="py-24 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
+        <section className="py-20 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
           {/* Founder 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-32">
             <div className="lg:col-span-5 relative">
@@ -110,7 +110,7 @@ export default function Team() {
         </section>
 
         {/* Team Grid */}
-        <section className="py-24 px-5 md:px-8 xl:px-18 bg-stone text-ink">
+        <section className="py-20 md:py-24 px-5 md:px-8 xl:px-18 bg-ink text-porcelain">
           <div className="max-w-[1440px] mx-auto">
             <div className="mb-20 text-center">
               <h2 className="text-4xl md:text-5xl font-serif mb-4">Many disciplines. One vision.</h2>
@@ -148,7 +148,7 @@ export default function Team() {
         </section>
 
         {/* Studio Culture */}
-        <section className="py-24 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto text-ink text-center">
+        <section className="py-20 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto text-ink text-center">
           <h2 className="text-3xl md:text-5xl font-serif mb-16 max-w-4xl mx-auto leading-relaxed">
             “Good design is rarely a <span className="font-script text-[1.2em] font-normal lowercase">solitary act.</span>”
           </h2>

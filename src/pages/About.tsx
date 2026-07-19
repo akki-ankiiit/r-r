@@ -36,10 +36,10 @@ export default function About() {
         </section>
 
         {/* Studio Story */}
-        <section className="py-24 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8">
+        <section className="py-20 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8">
           <div className="md:col-span-4 md:col-start-2">
             <h2 className="text-3xl font-serif mb-8 text-ink">Our Story</h2>
-            <div className="relative aspect-[3/4] w-full overflow-hidden mb-8 hidden md:block">
+            <div className="relative aspect-[3/4] w-full overflow-hidden mb-8">
               <ParallaxImage
                 src="https://instagram.fidr4-1.fna.fbcdn.net/v/t39.30808-6/362695965_18376689751021951_6720133227472749155_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzE2MDk2MTQxODQwNTA0NDQ5NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=S_53JgoS9FkQ7kNvwEjxAEd&_nc_oc=Adr4Zh2hZb4xEE21CfMpKduxbgIqYwwznqgOj7a9Ce9VC94UORQP39zBkoXHQGGQu-0ABCFksqApoNRwXaafsxSL&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fidr4-1.fna&_nc_gid=70je8i6sCA1-KulinilPjA&_nc_ss=7a22e&oh=00_AQClPKPEE07OhI3dBsSurvDhRqaJ_UAY2j3tZeadebrmbQ&oe=6A61B670"
                 alt="Studio detail"
@@ -67,7 +67,7 @@ export default function About() {
         </section>
 
         {/* Timeline */}
-        <section className="py-24 px-5 md:px-8 xl:px-18 bg-stone">
+        <section className="py-20 md:py-24 px-5 md:px-8 xl:px-18 bg-stone">
           <div className="max-w-[1440px] mx-auto">
             <h2 className="text-3xl font-serif mb-16 text-ink">Studio Timeline</h2>
             <div className="space-y-12 border-l border-ink/20 pl-6 md:pl-10 ml-2 md:ml-4">
@@ -90,7 +90,7 @@ export default function About() {
         </section>
 
         {/* Philosophy */}
-        <section className="py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto text-center">
+        <section className="py-24 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-serif mb-12 text-ink max-w-4xl mx-auto leading-[1.2]">
             Our idea of luxury is <span className="font-script text-[1.2em] font-normal lowercase">personal.</span>
           </h2>
@@ -111,7 +111,7 @@ export default function About() {
         </section>
 
         {/* Process */}
-        <section className="py-24 px-5 md:px-8 xl:px-18 bg-ink text-porcelain">
+        <section className="py-20 md:py-24 px-5 md:px-8 xl:px-18 bg-ink text-porcelain">
           <div className="max-w-[1440px] mx-auto">
             <h2 className="text-3xl font-serif mb-16">Our Process</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
@@ -134,7 +134,7 @@ export default function About() {
         </section>
 
         {/* Values */}
-        <section className="py-24 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
+        <section className="py-20 md:py-24 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
               <div className="relative aspect-[4/5] w-full overflow-hidden">
@@ -165,7 +165,7 @@ export default function About() {
         </section>
 
         {/* Closing Quote */}
-        <section className="py-32 px-5 text-center bg-stone">
+        <section className="py-24 md:py-32 px-5 text-center bg-stone">
           <h2 className="text-3xl md:text-5xl font-serif text-ink max-w-4xl mx-auto leading-relaxed">
             “The best spaces do not simply look complete.<br />
             They feel <span className="font-script text-[1.2em] font-normal lowercase">inevitable.</span>”

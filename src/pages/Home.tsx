@@ -28,7 +28,7 @@ export default function Home() {
 
           <div className="relative z-10 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto w-full text-porcelain flex flex-col md:flex-row justify-between items-end">
             <div className="max-w-4xl">
-              <h1 className="text-6xl md:text-[7vw] lg:text-[8vw] leading-[1.1] font-serif mb-6 tracking-tight text-porcelain/95">
+              <h1 className="text-5xl sm:text-6xl md:text-[7vw] lg:text-[8vw] leading-[1.1] font-serif mb-6 tracking-tight text-porcelain/95">
                 Architecture <br className="hidden md:block" />
                 <span className="font-script text-[1.2em] font-normal pb-4 -mb-4 pt-2 -mt-2 pr-8 pl-4 -ml-4 inline-block opacity-90">redefined.</span>
               </h1>
@@ -51,9 +51,9 @@ export default function Home() {
         </section>
 
         {/* Section 2: Glassmorphic Intro & Typography Mix */}
-        <section className="relative py-32 md:py-48 px-5 md:px-8 xl:px-18 overflow-hidden bg-stone">
+        <section className="relative py-20 md:py-48 px-5 md:px-8 xl:px-18 overflow-hidden bg-stone">
           <div className="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1545042746-86e247b9e4a3?auto=format&fit=crop&q=80" alt="Texture" className="w-full h-full object-cover opacity-30 mix-blend-overlay" />
+            <img src="https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?auto=format&fit=crop&q=80" alt="Texture" className="w-full h-full object-cover opacity-20 mix-blend-multiply" />
           </div>
 
           <div className="relative z-10 max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
@@ -149,7 +149,7 @@ export default function Home() {
         </section>
 
         {/* Section 4: Philosophy / Quote Section */}
-        <section className="relative py-32 md:py-48 px-5 md:px-8 xl:px-18 bg-aubergine text-porcelain overflow-hidden shadow-inner">
+        <section className="relative py-24 md:py-48 px-5 md:px-8 xl:px-18 bg-aubergine text-porcelain overflow-hidden shadow-inner">
           <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay">
             <ParallaxImage src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&q=80" alt="Texture" />
           </div>
