@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-porcelain: #F3F0EB;
+  --color-stone: #DDD8D5;
+  --color-ink: #130907;
+  --color-bone: #E9E3DA;
+  --color-walnut: #5B4033;
+  --color-olive: #747565;
+  --color-brass: #A98D62;
+  --color-aubergine: #302226;
+
+  --font-serif: 'DM Sans', sans-serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-script: 'Pinyon Script', cursive;
+}
+
+@layer utilities {
+  .font-script {
+    padding-right: 0.15em;
+    padding-bottom: 0.1em;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-porcelain text-ink font-sans antialiased;
+  }
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
