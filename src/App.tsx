@@ -9,6 +9,7 @@ import Press from "@/pages/Press";
 import Contact from "@/pages/Contact";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import NotFound from "@/pages/NotFound";
 import CustomCursor from "@/components/CustomCursor";
 import LenisProvider from "@/components/LenisProvider";
 
@@ -27,6 +28,7 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );
