@@ -4,12 +4,12 @@ import PageTransition from "@/components/PageTransition";
 import ParallaxImage from "@/components/ParallaxImage";
 
 const teamMembers = [
-  { name: "Aarav Sharma", role: "Senior Architect", dept: "Design" },
-  { name: "Meera Patel", role: "Project Manager", dept: "Coordination" },
-  { name: "Kunal Singh", role: "Site Supervisor", dept: "Execution" },
-  { name: "Neha Gupta", role: "Interior Stylist", dept: "Styling" },
-  { name: "Vikram Desai", role: "3D Visualizer", dept: "Design" },
-  { name: "Anjali Rao", role: "Procurement Lead", dept: "Operations" },
+  { name: "Aarav Sharma", role: "Senior Architect", dept: "Design", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600", quote: "Architecture is the thoughtful making of space." },
+  { name: "Meera Patel", role: "Project Manager", dept: "Coordination", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600", quote: "Great design lives in the flawless details." },
+  { name: "Kunal Singh", role: "Site Supervisor", dept: "Execution", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600", quote: "Building the foundation for visionary ideas." },
+  { name: "Neha Gupta", role: "Interior Stylist", dept: "Styling", image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=600", quote: "Styling is about telling a space's story." },
+  { name: "Vikram Desai", role: "3D Visualizer", dept: "Design", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=600", quote: "Translating imagination into visual reality." },
+  { name: "Anjali Rao", role: "Procurement Lead", dept: "Operations", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600", quote: "Sourcing the world for unique elements." },
 ];
 
 export default function Team() {
@@ -19,7 +19,7 @@ export default function Team() {
       <main className="min-h-screen bg-porcelain">
 
         {/* Hero */}
-        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-48 pb-12 md:pb-24 overflow-hidden bg-ink mb-16">
+        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-40 pb-16 md:pb-24 overflow-hidden bg-ink">
           <div className="absolute inset-0 z-0">
             <ParallaxImage
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000"
@@ -32,7 +32,7 @@ export default function Team() {
           
           <div className="relative z-10 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto w-full text-porcelain flex flex-col md:flex-row justify-between items-end">
             <div className="max-w-4xl">
-              <p className="text-xs md:text-sm font-sans uppercase tracking-[0.2em] mb-6 opacity-80">Our Team</p>
+              <p className="font-script text-3xl md:text-4xl mb-6 opacity-90 capitalize">Our Team</p>
               <h1 className="text-5xl md:text-[6vw] lg:text-[7vw] leading-[1.1] font-serif mb-6 tracking-tight text-porcelain/95">
                 A collective of <br className="hidden md:block" />
                 <span className="font-script text-[1.2em] font-normal lowercase pr-8 pb-4 -mb-4 pt-2 -mt-2 pl-4 -ml-4 inline-block opacity-90">creatives.</span>
@@ -45,9 +45,9 @@ export default function Team() {
         </section>
 
         {/* Founders */}
-        <section className="py-20 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
+        <section className="py-16 md:py-24 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
           {/* Founder 1 */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 md:mb-24">
             <div className="lg:col-span-5 relative">
               <div className="aspect-[3/4] w-full overflow-hidden">
                 <ParallaxImage
@@ -59,7 +59,7 @@ export default function Team() {
             </div>
             <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center text-ink">
               <h2 className="text-3xl font-serif mb-2">Rashi Bothra</h2>
-              <p className="text-xs font-sans uppercase tracking-widest opacity-50 mb-8">Co-Founder & Principal Designer</p>
+              <p className="font-script text-2xl md:text-3xl opacity-80 mb-8 capitalize">Co-Founder & Principal Designer</p>
 
               <div className="text-base font-sans text-ink/80 leading-relaxed space-y-6">
                 <p>
@@ -81,7 +81,7 @@ export default function Team() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             <div className="lg:col-span-6 flex flex-col justify-center text-ink order-2 lg:order-1">
               <h2 className="text-3xl font-serif mb-2">Ruchi Gehani</h2>
-              <p className="text-xs font-sans uppercase tracking-widest opacity-50 mb-8">Co-Founder & Principal Designer</p>
+              <p className="font-script text-2xl md:text-3xl opacity-80 mb-8 capitalize">Co-Founder & Principal Designer</p>
 
               <div className="text-base font-sans text-ink/80 leading-relaxed space-y-6 max-w-lg">
                 <p>
@@ -110,46 +110,66 @@ export default function Team() {
         </section>
 
         {/* Team Grid */}
-        <section className="py-20 md:py-24 px-5 md:px-8 xl:px-18 bg-ink text-porcelain">
+        <section className="py-16 md:py-24 px-5 md:px-8 xl:px-18 bg-ink text-porcelain">
           <div className="max-w-[1440px] mx-auto">
-            <div className="mb-20 text-center">
+            <div className="mb-12 md:mb-16 text-center">
               <h2 className="text-4xl md:text-5xl font-serif mb-4">Many disciplines. One vision.</h2>
-              <p className="text-sm font-sans uppercase tracking-widest opacity-60">Design · Execution · Coordination · Styling</p>
+              <p className="font-script text-2xl md:text-3xl opacity-80 capitalize">Design · Execution · Coordination · Styling</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-              {teamMembers.map((member, idx) => (
-                <div key={idx} className="group cursor-pointer">
-                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-bone mb-6">
-                    {/* Placeholder for team portraits */}
-                    <div className="absolute inset-0 flex items-center justify-center text-4xl font-serif text-ink/20 uppercase tracking-widest opacity-100 group-hover:opacity-0 transition-opacity duration-500">
-                      {member.name.split(' ').map(n => n[0]).join('')}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+              {teamMembers.map((member, idx) => {
+                const nameParts = member.name.split(' ');
+                const firstName = nameParts.slice(0, -1).join(' ');
+                const lastName = nameParts[nameParts.length - 1];
+
+                return (
+                  <div key={idx} className="cursor-pointer [perspective:1000px]">
+                    <div className="group relative aspect-[3/4] w-full mb-6 shadow-lg hover:shadow-2xl transition-transform duration-[1500ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
+                      
+                      {/* Front Side */}
+                      <div className="absolute inset-0 bg-bone overflow-hidden [backface-visibility:hidden]">
+                        <ParallaxImage
+                          src={member.image}
+                          alt={member.name}
+                          speed={0.15}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent opacity-90 mix-blend-multiply" />
+                        <div className="absolute bottom-0 left-0 p-6 z-10 w-full">
+                          <h3 className="text-xl sm:text-2xl font-serif mb-2 text-porcelain">{member.name}</h3>
+                          <p className="text-[10px] sm:text-xs font-sans text-porcelain/80 uppercase tracking-widest">{member.role}</p>
+                        </div>
+                        <div className="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1500ms] mix-blend-multiply pointer-events-none" />
+                      </div>
+
+                      {/* Back Side */}
+                      <div className="absolute inset-0 bg-stone text-ink p-6 flex flex-col items-center justify-center text-center [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-inner">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mb-4 border border-ink/10 p-1 bg-porcelain">
+                          <img src={member.image} alt={member.name} className="w-full h-full object-cover rounded-full filter grayscale opacity-90" />
+                        </div>
+                        <h3 className="font-serif text-lg sm:text-xl mb-1">{member.name}</h3>
+                        <p className="text-[9px] sm:text-[10px] font-sans uppercase tracking-widest text-ink/50 mb-4 sm:mb-6">{member.role}</p>
+                        
+                        <p className="font-sans text-xs sm:text-sm font-light italic leading-relaxed text-ink/80 mb-6 sm:mb-8 px-2 relative">
+                          <span className="absolute -top-3 -left-2 text-3xl opacity-20 font-serif">"</span>
+                          {member.quote}
+                          <span className="absolute -bottom-4 -right-2 text-3xl opacity-20 font-serif">"</span>
+                        </p>
+                        
+                        <p className="font-script text-3xl text-ink/80 capitalize">{firstName}</p>
+                      </div>
                     </div>
-                    {/* Hover Candid Image (using random abstract for now) */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                      <ParallaxImage
-                        src={`https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600&sig=${idx}`}
-                        alt={member.name}
-                        speed={0}
-                      />
-                    </div>
+
                   </div>
-                  <div>
-                    <h3 className="text-xl font-serif mb-1">{member.name}</h3>
-                    <div className="flex justify-between items-center text-xs font-sans text-ink/60 uppercase tracking-widest">
-                      <span>{member.role}</span>
-                      <span>{member.dept}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* Studio Culture */}
-        <section className="py-20 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto text-ink text-center">
-          <h2 className="text-3xl md:text-5xl font-serif mb-16 max-w-4xl mx-auto leading-relaxed">
+        <section className="py-16 md:py-24 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto text-ink text-center">
+          <h2 className="text-3xl md:text-5xl font-serif mb-12 md:mb-16 max-w-4xl mx-auto leading-relaxed">
             “Good design is rarely a <span className="font-script text-[1.2em] font-normal lowercase">solitary act.</span>”
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">

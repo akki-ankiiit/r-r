@@ -20,6 +20,28 @@
     padding-right: 0.15em;
     padding-bottom: 0.1em;
   }
+  .uppercase {
+    text-transform: none !important;
+  }
+  .tracking-widest,
+  .tracking-wider,
+  .tracking-wide,
+  .tracking-\[0\.15em\],
+  .tracking-\[0\.2em\],
+  .tracking-\[0\.3em\] {
+    letter-spacing: normal !important;
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 }
 
 @layer base {

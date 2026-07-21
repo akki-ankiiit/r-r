@@ -25,7 +25,7 @@ export default function Portfolio() {
       <main className="min-h-screen bg-porcelain pb-24 text-ink">
         
         {/* Hero */}
-        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-48 pb-12 md:pb-24 overflow-hidden bg-ink mb-16">
+        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-40 pb-16 md:pb-24 overflow-hidden bg-ink">
           <div className="absolute inset-0 z-0">
             <ParallaxImage
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000"
@@ -39,7 +39,7 @@ export default function Portfolio() {
           
           <div className="relative z-10 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto w-full text-porcelain flex flex-col md:flex-row justify-between items-end">
             <div className="max-w-4xl">
-              <p className="text-xs md:text-sm font-sans uppercase tracking-[0.2em] mb-6 opacity-80">Selected Work</p>
+              <p className="font-script text-3xl md:text-4xl mb-6 opacity-90 capitalize">Selected Work</p>
               <h1 className="text-5xl md:text-[6vw] lg:text-[7vw] leading-[1.1] font-serif mb-6 tracking-tight text-porcelain/95">
                 Spaces with a story <br className="hidden md:block" />
                 of their <span className="font-script text-[1.2em] font-normal lowercase pr-8 pb-4 -mb-4 pt-2 -mt-2 pl-4 -ml-4 inline-block opacity-90">own.</span>
@@ -52,40 +52,45 @@ export default function Portfolio() {
         </section>
 
         {/* Sticky Filters & View Switcher */}
-        <section className="sticky top-16 z-30 bg-porcelain/90 backdrop-blur-md px-5 md:px-8 xl:px-18 py-4 border-b border-ink/10 mb-16">
-          <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <section className="sticky top-16 z-30 bg-porcelain/90 backdrop-blur-md border-b border-ink/10 mb-8 md:mb-12">
+          <div className="max-w-[1440px] mx-auto px-5 md:px-8 xl:px-18 py-3 md:py-4 flex flex-row justify-between items-center gap-4">
             {/* Filters */}
-            <div className="flex flex-wrap gap-x-6 md:gap-x-8 gap-y-3">
-              {categories.map(cat => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveFilter(cat)}
-                  className={cn(
-                    "text-xs md:text-sm font-sans uppercase tracking-widest transition-opacity relative",
-                    activeFilter === cat ? "opacity-100" : "opacity-40 hover:opacity-70"
-                  )}
-                >
-                  {cat}
-                  {activeFilter === cat && (
-                    <motion.div layoutId="portfolio-filter" className="absolute -bottom-2 left-0 right-0 h-[1px] bg-ink" />
-                  )}
-                </button>
-              ))}
+            <div 
+              className="flex-1 overflow-x-auto no-scrollbar relative pr-2 md:pr-4"
+              style={{ maskImage: 'linear-gradient(to right, black calc(100% - 32px), transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, black calc(100% - 32px), transparent 100%)' }}
+            >
+              <div className="flex gap-x-6 md:gap-x-8 min-w-max pr-12 py-2">
+                {categories.map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveFilter(cat)}
+                    className={cn(
+                      "text-[11px] md:text-sm font-sans uppercase tracking-[0.15em] transition-opacity relative pb-1 whitespace-nowrap",
+                      activeFilter === cat ? "opacity-100 font-medium" : "opacity-40 hover:opacity-70"
+                    )}
+                  >
+                    {cat}
+                    {activeFilter === cat && (
+                      <motion.div layoutId="portfolio-filter" className="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-[1px] bg-ink" />
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* View Mode */}
-            <div className="hidden md:flex items-center space-x-4 border-l border-ink/20 pl-6">
+            <div className="flex items-center space-x-3 md:space-x-4 border-l border-ink/20 pl-4 md:pl-6 shrink-0">
               <button
                 onClick={() => setViewMode("editorial")}
-                className={cn("p-2 transition-opacity", viewMode === "editorial" ? "opacity-100" : "opacity-40 hover:opacity-70")}
+                className={cn("p-1.5 md:p-2 transition-opacity", viewMode === "editorial" ? "opacity-100" : "opacity-40 hover:opacity-70")}
               >
-                <LayoutGrid className="w-5 h-5" />
+                <LayoutGrid className="w-4 h-4 md:w-5 md:h-5" />
               </button>
               <button
                 onClick={() => setViewMode("index")}
-                className={cn("p-2 transition-opacity", viewMode === "index" ? "opacity-100" : "opacity-40 hover:opacity-70")}
+                className={cn("p-1.5 md:p-2 transition-opacity", viewMode === "index" ? "opacity-100" : "opacity-40 hover:opacity-70")}
               >
-                <List className="w-5 h-5" />
+                <List className="w-4 h-4 md:w-5 md:h-5" />
               </button>
             </div>
           </div>

@@ -35,7 +35,7 @@ export default function Contact() {
       <Header theme="light" />
       <main className="min-h-screen bg-porcelain pb-24">
         {/* Hero */}
-        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-48 pb-12 md:pb-24 overflow-hidden bg-ink mb-16">
+        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-40 pb-16 md:pb-24 overflow-hidden bg-ink">
           <div className="absolute inset-0 z-0">
             <ParallaxImage
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000"
@@ -48,7 +48,7 @@ export default function Contact() {
 
           <div className="relative z-10 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto w-full text-porcelain flex flex-col md:flex-row justify-between items-end">
             <div className="max-w-4xl">
-              <p className="text-xs md:text-sm font-sans uppercase tracking-[0.2em] mb-6 opacity-80">Contact</p>
+              <p className="font-script text-3xl md:text-4xl mb-6 opacity-90 capitalize">Contact</p>
               <h1 className="text-5xl md:text-[6vw] lg:text-[7vw] leading-[1.1] font-serif mb-6 tracking-tight text-porcelain/95">
                 Let’s create something <span className="font-script text-[1.2em] font-normal lowercase pr-8 pb-4 -mb-4 pt-2 -mt-2 pl-4 -ml-4 inline-block opacity-90">amazing.</span>
               </h1>
@@ -59,10 +59,17 @@ export default function Contact() {
           </div>
         </section>
 
-        <div className="max-w-[1024px] mx-auto px-5 md:px-8 xl:px-12">
+        <div className="max-w-[1024px] mx-auto px-5 md:px-8 xl:px-12 pt-8 md:pt-16">
+
+          <div className="text-center mb-12 md:mb-16 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-ink">Get in touch</h2>
+            <p className="text-sm font-sans text-ink/70 leading-relaxed">
+              We would love to hear about your upcoming project. Fill out the form below to start a conversation with our team.
+            </p>
+          </div>
 
           {/* Top: Enquiry Form */}
-          <div className="mb-24">
+          <div className="mb-16 md:mb-24">
             <div className="bg-bone p-8 md:p-12 h-full rounded-sm relative overflow-hidden">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
@@ -198,13 +205,14 @@ export default function Contact() {
                         )}
 
                         {step < 4 ? (
-                          <button type="button" onClick={handleNext} className="flex items-center space-x-3 text-xs font-sans uppercase tracking-widest text-ink hover:opacity-70 transition-opacity ml-auto z-10 bg-bone">
+                          <button type="button" onClick={handleNext} className="inline-flex items-center justify-center bg-ink text-porcelain px-8 py-3 text-xs font-sans uppercase tracking-[0.15em] hover:bg-ink/80 hover:scale-[1.02] transition-all duration-300 group ml-auto z-10">
                             <span>Next Step</span>
-                            <ArrowRight className="w-4 h-4" />
+                            <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                           </button>
                         ) : (
-                          <button type="submit" disabled={!formData.consent} className="flex items-center space-x-2 text-xs font-sans uppercase tracking-widest text-porcelain bg-ink px-6 py-3 hover:bg-ink/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed ml-auto z-10">
+                          <button type="submit" disabled={!formData.consent} className="inline-flex items-center justify-center bg-ink text-porcelain px-8 py-4 text-xs font-sans uppercase tracking-[0.15em] hover:bg-ink/80 hover:scale-[1.02] transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 ml-auto z-10">
                             <span>Share Project</span>
+                            <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                           </button>
                         )}
                       </div>

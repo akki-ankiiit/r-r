@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import ParallaxImage from "@/components/ParallaxImage";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { Link } from "react-router-dom";
@@ -23,7 +23,7 @@ const pressItems = [
 export default function Press() {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const filteredItems = pressItems.filter(item => 
+  const filteredItems = pressItems.filter(item =>
     !item.featured && (activeFilter === "All" || item.category === activeFilter)
   );
 
@@ -33,9 +33,9 @@ export default function Press() {
     <PageTransition>
       <Header theme="light" />
       <main className="min-h-screen bg-porcelain pb-24 text-ink">
-        
+
         {/* Hero */}
-        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-48 pb-12 md:pb-24 overflow-hidden bg-ink mb-16">
+        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-40 pb-16 md:pb-24 overflow-hidden bg-ink">
           <div className="absolute inset-0 z-0">
             <ParallaxImage
               src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=2000"
@@ -45,10 +45,10 @@ export default function Press() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/20 mix-blend-normal" />
           </div>
-          
+
           <div className="relative z-10 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto w-full text-porcelain flex flex-col md:flex-row justify-between items-end">
             <div className="max-w-4xl">
-              <p className="text-xs md:text-sm font-sans uppercase tracking-[0.2em] mb-6 opacity-80">Press & Recognition</p>
+              <p className="font-script text-3xl md:text-4xl mb-6 opacity-90 capitalize">Press & Recognition</p>
               <h1 className="text-5xl md:text-[6vw] lg:text-[7vw] leading-[1.1] font-serif mb-6 tracking-tight text-porcelain/95">
                 Stories beyond <br className="hidden md:block" />
                 the <span className="font-script text-[1.2em] font-normal lowercase pr-8 pb-4 -mb-4 pt-2 -mt-2 pl-4 -ml-4 inline-block opacity-90">spaces.</span>
@@ -62,7 +62,7 @@ export default function Press() {
 
         {/* Featured Press */}
         {featured && (
-          <section className="px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto mb-24 md:mb-32">
+          <section className="px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto mb-16 md:mb-24">
             <a href="#" className="group block">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0 items-center">
                 <div className="md:col-span-8 overflow-hidden">
@@ -87,23 +87,28 @@ export default function Press() {
         )}
 
         {/* Filters */}
-        <section className="px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto mb-16">
-          <div className="flex flex-wrap gap-x-8 gap-y-4 border-b border-ink/10 pb-6">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActiveFilter(cat)}
-                className={cn(
-                  "text-sm font-sans uppercase tracking-widest transition-opacity relative",
-                  activeFilter === cat ? "opacity-100" : "opacity-40 hover:opacity-70"
-                )}
-              >
-                {cat}
-                {activeFilter === cat && (
-                  <motion.div layoutId="press-filter" className="absolute -bottom-[25px] left-0 right-0 h-[1px] bg-ink" />
-                )}
-              </button>
-            ))}
+        <section className="px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto mb-8 md:mb-12 border-b border-ink/10">
+          <div
+            className="w-full overflow-x-auto no-scrollbar relative"
+            style={{ maskImage: 'linear-gradient(to right, black calc(100% - 32px), transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, black calc(100% - 32px), transparent 100%)' }}
+          >
+            <div className="flex gap-x-6 md:gap-x-8 min-w-max pr-12 pb-6">
+              {categories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveFilter(cat)}
+                  className={cn(
+                    "text-[11px] md:text-sm font-sans uppercase tracking-[0.15em] transition-opacity relative whitespace-nowrap",
+                    activeFilter === cat ? "opacity-100 font-medium" : "opacity-40 hover:opacity-70"
+                  )}
+                >
+                  {cat}
+                  {activeFilter === cat && (
+                    <motion.div layoutId="press-filter" className="absolute -bottom-[25px] left-0 right-0 h-[1px] bg-ink" />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -138,19 +143,6 @@ export default function Press() {
               ))}
             </AnimatePresence>
           </div>
-        </section>
-
-        {/* Press Enquiry */}
-        <section className="mt-32 py-32 bg-stone text-center px-5">
-          <h2 className="text-3xl md:text-5xl font-serif mb-12">
-            For editorial features, collaborations<br />
-            and press enquiries.
-          </h2>
-          <Link to="/contact"
-            className="inline-block border border-ink text-ink px-8 py-4 text-sm font-sans uppercase tracking-widest hover:bg-ink hover:text-porcelain transition-colors"
-          >
-            Contact the Studio
-          </Link>
         </section>
 
       </main>

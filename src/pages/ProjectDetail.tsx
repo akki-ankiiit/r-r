@@ -27,7 +27,7 @@ export default function ProjectDetail() {
       <main className="min-h-screen bg-porcelain text-ink">
         
         {/* Project Hero */}
-        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-48 pb-12 overflow-hidden bg-ink mb-16">
+        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-40 pb-16 md:pb-24 overflow-hidden bg-ink">
           <div className="absolute inset-0 z-0">
             <ParallaxImage
               src={project.heroImage}
@@ -63,10 +63,10 @@ export default function ProjectDetail() {
         </section>
 
         {/* Project Introduction */}
-        <section className="py-24 md:py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
+        <section className="py-16 md:py-24 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
             <div className="lg:col-span-6 flex flex-col justify-center">
-              <h2 className="text-2xl md:text-3xl font-serif mb-6">{project.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-serif mb-8 md:mb-12">{project.title}</h2>
               <p className="text-lg md:text-xl font-sans text-ink/70 leading-relaxed max-w-lg">
                 {project.concept}
               </p>
@@ -95,9 +95,9 @@ export default function ProjectDetail() {
         </section>
 
         {/* Narrative & Galleries */}
-        <section className="pb-24 md:pb-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
+        <section className="py-16 md:py-24 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 mb-16 md:mb-24">
             {project.narrative.map((para: string, idx: number) => (
               <p key={idx} className="text-base font-sans text-ink/80 leading-relaxed">
                 {para}
@@ -128,9 +128,9 @@ export default function ProjectDetail() {
         </section>
 
         {/* Material Palette */}
-        <section className="py-24 px-5 md:px-8 xl:px-18 bg-stone">
+        <section className="py-16 md:py-24 px-5 md:px-8 xl:px-18 bg-stone">
           <div className="max-w-[1440px] mx-auto">
-            <h2 className="text-2xl font-serif mb-12 text-center">Material Palette</h2>
+            <h2 className="text-2xl font-serif mb-8 md:mb-12 text-center">Material Palette</h2>
             <div className="flex flex-wrap justify-center gap-8 md:gap-16">
               {project.materials.map((mat: any, idx: number) => (
                 <div key={idx} className="flex flex-col items-center">
@@ -145,7 +145,7 @@ export default function ProjectDetail() {
         </section>
 
         {/* Project Quote */}
-        <section className="py-32 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto text-center">
+        <section className="py-16 md:py-24 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto text-center">
           <p className="text-2xl md:text-4xl font-serif leading-relaxed max-w-4xl mx-auto italic text-ink/80">
             “{project.quote}”
           </p>
