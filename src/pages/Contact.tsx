@@ -33,9 +33,9 @@ export default function Contact() {
   return (
     <PageTransition>
       <Header theme="light" />
-      <main className="min-h-screen bg-porcelain pb-24">
+      <main className="min-h-screen bg-porcelain pb-16 md:pb-24">
         {/* Hero */}
-        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-40 pb-16 md:pb-24 overflow-hidden bg-ink">
+        <section className="relative min-h-[65vh] lg:min-h-[80vh] w-full flex flex-col justify-end pt-24 lg:pt-40 pb-10 md:pb-16 lg:pb-16 md:pb-24 overflow-hidden bg-ink">
           <div className="absolute inset-0 z-0">
             <ParallaxImage
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000"
@@ -61,7 +61,7 @@ export default function Contact() {
 
         <div className="max-w-[1024px] mx-auto px-5 md:px-8 xl:px-12 pt-8 md:pt-16">
 
-          <div className="text-center mb-12 md:mb-16 max-w-2xl mx-auto">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-serif mb-4 text-ink">Get in touch</h2>
             <p className="text-sm font-sans text-ink/70 leading-relaxed">
               We would love to hear about your upcoming project. Fill out the form below to start a conversation with our team.
@@ -69,7 +69,7 @@ export default function Contact() {
           </div>
 
           {/* Top: Enquiry Form */}
-          <div className="mb-16 md:mb-24">
+          <div className="mb-10 md:mb-16 lg:mb-24">
             <div className="bg-bone p-8 md:p-12 h-full rounded-sm relative overflow-hidden">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (

@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
   return (
     <PageTransition>
       <Header theme="dark" />
-      <main className="min-h-screen bg-porcelain pt-32 pb-24 text-ink">
+      <main className="min-h-screen bg-porcelain pt-24 pb-16 md:pt-32 md:pb-16 md:pb-24 text-ink">
         <div className="max-w-3xl mx-auto px-5 md:px-8">
           <h1 className="text-4xl md:text-5xl font-serif mb-8 tracking-tight">Privacy Policy</h1>
           <div className="space-y-6 font-sans text-sm md:text-base leading-relaxed opacity-80">

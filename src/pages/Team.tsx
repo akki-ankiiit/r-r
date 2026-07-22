@@ -29,7 +29,7 @@ export default function Team() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/20 mix-blend-normal" />
           </div>
-          
+
           <div className="relative z-10 px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto w-full text-porcelain flex flex-col md:flex-row justify-between items-end">
             <div className="max-w-4xl">
               <p className="font-script text-3xl md:text-4xl mb-6 opacity-90 capitalize">Our Team</p>
@@ -59,7 +59,7 @@ export default function Team() {
             </div>
             <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center text-ink">
               <h2 className="text-3xl font-serif mb-2">Rashi Bothra</h2>
-              <p className="font-script text-2xl md:text-3xl opacity-80 mb-8 capitalize">Co-Founder & Principal Designer</p>
+              <p className="font-serif text-xl md:text-xl opacity-80 mb-8 capitalize">Co-Founder & Principal Designer</p>
 
               <div className="text-base font-sans text-ink/80 leading-relaxed space-y-6">
                 <p>
@@ -81,7 +81,7 @@ export default function Team() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             <div className="lg:col-span-6 flex flex-col justify-center text-ink order-2 lg:order-1">
               <h2 className="text-3xl font-serif mb-2">Ruchi Gehani</h2>
-              <p className="font-script text-2xl md:text-3xl opacity-80 mb-8 capitalize">Co-Founder & Principal Designer</p>
+              <p className="font-serif text-xl md:text-xl opacity-80 mb-8 capitalize">Co-Founder & Principal Designer</p>
 
               <div className="text-base font-sans text-ink/80 leading-relaxed space-y-6 max-w-lg">
                 <p>
@@ -126,16 +126,16 @@ export default function Team() {
                 return (
                   <div key={idx} className="cursor-pointer [perspective:1000px]">
                     <div className="group relative aspect-[3/4] w-full mb-6 shadow-lg hover:shadow-2xl transition-transform duration-[1500ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
-                      
+
                       {/* Front Side */}
-                      <div className="absolute inset-0 bg-bone overflow-hidden [backface-visibility:hidden]">
+                      <div className="absolute inset-0 bg-bone overflow-hidden [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
                         <ParallaxImage
                           src={member.image}
                           alt={member.name}
                           speed={0.15}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent opacity-90 mix-blend-multiply" />
-                        <div className="absolute bottom-0 left-0 p-6 z-10 w-full">
+                        <div className="absolute bottom-0 left-0 p-6 w-full">
                           <h3 className="text-xl sm:text-2xl font-serif mb-2 text-porcelain">{member.name}</h3>
                           <p className="text-[10px] sm:text-xs font-sans text-porcelain/80 uppercase tracking-widest">{member.role}</p>
                         </div>
@@ -143,19 +143,19 @@ export default function Team() {
                       </div>
 
                       {/* Back Side */}
-                      <div className="absolute inset-0 bg-stone text-ink p-6 flex flex-col items-center justify-center text-center [backface-visibility:hidden] [transform:rotateY(180deg)] shadow-inner">
+                      <div className="absolute inset-0 bg-stone text-ink p-6 flex flex-col items-center justify-center text-center [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] shadow-inner">
                         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mb-4 border border-ink/10 p-1 bg-porcelain">
                           <img src={member.image} alt={member.name} className="w-full h-full object-cover rounded-full filter grayscale opacity-90" />
                         </div>
                         <h3 className="font-serif text-lg sm:text-xl mb-1">{member.name}</h3>
                         <p className="text-[9px] sm:text-[10px] font-sans uppercase tracking-widest text-ink/50 mb-4 sm:mb-6">{member.role}</p>
-                        
+
                         <p className="font-sans text-xs sm:text-sm font-light italic leading-relaxed text-ink/80 mb-6 sm:mb-8 px-2 relative">
                           <span className="absolute -top-3 -left-2 text-3xl opacity-20 font-serif">"</span>
                           {member.quote}
                           <span className="absolute -bottom-4 -right-2 text-3xl opacity-20 font-serif">"</span>
                         </p>
-                        
+
                         <p className="font-script text-3xl text-ink/80 capitalize">{firstName}</p>
                       </div>
                     </div>

@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import ParallaxImage from "@/components/ParallaxImage";
 import SplitText from "@/components/SplitText";
+import Testimonials from "@/components/Testimonials";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence, useInView, animate } from "framer-motion";
@@ -13,6 +14,7 @@ const selectedProjects = [
   { title: "Horizon Estate", category: "Blending the boundaries between architecture and nature.", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80", link: "/portfolio/horizon-estate" },
   { title: "Lumina Retail", category: "An immersive commercial environment.", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80", link: "/portfolio/lumina-retail" },
   { title: "The Monochrome House", category: "Minimalism achieved through dramatic contrast.", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80", link: "/portfolio/monochrome-house" },
+  { title: "Oasis Pavilion", category: "A sanctuary of peace in the bustling city.", image: "https://images.unsplash.com/photo-1502005097973-6a7082348e28?auto=format&fit=crop&q=80", link: "/portfolio/oasis-pavilion" },
 ];
 
 function AnimatedNumber({ value, label }: { value: number; label: string }) {
@@ -66,7 +68,7 @@ export default function Home() {
       <main className="min-h-screen bg-porcelain">
 
         {/* Section 1: Fresh Editorial Hero */}
-        <section className="relative min-h-screen w-full flex flex-col justify-end pt-32 lg:pt-40 pb-16 md:pb-24 overflow-hidden bg-ink">
+        <section className="relative min-h-screen w-full flex flex-col justify-end pt-24 lg:pt-40 pb-10 md:pb-16 lg:pb-16 md:pb-24 overflow-hidden bg-ink">
           <div className="absolute inset-0 z-0">
             {/* I've used a placeholder that closely resembles the uploaded modern house. You can change this src to "/images/hero.jpg" once you drop the file into the public/images folder */}
             <ParallaxImage
@@ -104,7 +106,7 @@ export default function Home() {
         </section>
 
         {/* Section 2: Glassmorphic Intro & Typography Mix */}
-        <section className="relative py-16 md:py-24 px-5 md:px-8 xl:px-18 overflow-hidden bg-stone">
+        <section className="relative py-12 md:py-16 lg:py-24 px-5 md:px-8 xl:px-18 overflow-hidden bg-stone">
           <div className="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1690743300187-51d68146adf7?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Texture" className="w-full h-full object-cover opacity-20 mix-blend-multiply" />
           </div>
@@ -148,14 +150,36 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section 3: Centered Immersive Slider */}
-        <section className="flex flex-col justify-center py-12 md:py-16 bg-porcelain text-ink relative overflow-hidden">
+        {/* Section 3: Centered Immersive Slider (5 Cards, Single Viewport) */}
+        <section className="flex flex-col justify-center min-h-screen bg-porcelain text-ink relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-stone to-transparent z-0" />
+          
+          {/* Ambient Glowing Orbs */}
+          <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-cyan-600/10 blur-[120px] mix-blend-multiply pointer-events-none z-0" />
+          <div className="absolute top-[40%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-amber-600/10 blur-[120px] mix-blend-multiply pointer-events-none z-0" />
           
           <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 md:px-8 xl:px-18 flex flex-col items-center text-center">
             
+            {/* Spinning Sticker */}
+            <motion.div 
+              className="absolute top-0 right-5 md:top-10 md:right-10 z-20 pointer-events-none opacity-60 mix-blend-multiply hidden md:block"
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+            >
+              <svg width="140" height="140" viewBox="0 0 140 140">
+                <defs>
+                  <path id="textPath" d="M 70, 70 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" />
+                </defs>
+                <text className="text-[11.5px] font-sans uppercase tracking-[0.27em] fill-ink font-medium">
+                  <textPath href="#textPath" startOffset="0%">
+                    Award Winning Design • Est. 2013 •
+                  </textPath>
+                </text>
+              </svg>
+            </motion.div>
+            
             {/* Centered Typography */}
-            <div className="mb-6 md:mb-8">
+            <div className="mb-4 md:mb-6">
               <p className="font-script text-3xl md:text-4xl opacity-90 mb-2 text-ink/80 capitalize">Our Portfolio</p>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif">
                 Spaces that tell a <span className="font-script text-[1.4em] font-normal mx-1 -mb-2 inline-block">story.</span>
@@ -163,21 +187,25 @@ export default function Home() {
             </div>
 
             {/* Coverflow Image Slider */}
-            <div className="relative w-full max-w-[100vw] h-[50vh] md:h-[60vh] lg:h-[70vh] flex items-center justify-center perspective-[1200px] mt-6 md:mt-10 overflow-hidden">
+            <div className="relative w-full max-w-[100vw] h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-center justify-center perspective-[1200px] mt-4 md:mt-8 overflow-hidden">
               
               {selectedProjects.map((project, idx) => {
                 const diff = (idx - currentProject + selectedProjects.length) % selectedProjects.length;
                 
                 let position = "hidden";
                 if (diff === 0) position = "center";
-                else if (diff === 1) position = "right";
-                else if (diff === selectedProjects.length - 1) position = "left";
+                else if (diff === 1) position = "right1";
+                else if (diff === 2) position = "right2";
+                else if (diff === selectedProjects.length - 1) position = "left1";
+                else if (diff === selectedProjects.length - 2) position = "left2";
 
                 const variants = {
-                  center: { x: "0%", scale: 1, zIndex: 30, opacity: 1, rotateY: 0 },
-                  right: { x: "45%", scale: 0.85, zIndex: 20, opacity: 0.5, rotateY: -10 },
-                  left: { x: "-45%", scale: 0.85, zIndex: 20, opacity: 0.5, rotateY: 10 },
-                  hidden: { x: "0%", scale: 0.6, zIndex: 10, opacity: 0, rotateY: 0 },
+                  center: { x: "0%", scale: 1, zIndex: 30, opacity: 1, rotateY: 0, boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5), 0 0 60px 15px rgba(255,255,255,0.2)" },
+                  right1: { x: "40%", scale: 0.8, zIndex: 20, opacity: 0.6, rotateY: -12, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.3), 0 0 0 0 rgba(255,255,255,0)" },
+                  right2: { x: "70%", scale: 0.6, zIndex: 10, opacity: 0.3, rotateY: -20, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.3), 0 0 0 0 rgba(255,255,255,0)" },
+                  left1: { x: "-40%", scale: 0.8, zIndex: 20, opacity: 0.6, rotateY: 12, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.3), 0 0 0 0 rgba(255,255,255,0)" },
+                  left2: { x: "-70%", scale: 0.6, zIndex: 10, opacity: 0.3, rotateY: 20, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.3), 0 0 0 0 rgba(255,255,255,0)" },
+                  hidden: { x: "0%", scale: 0.4, zIndex: 0, opacity: 0, rotateY: 0, boxShadow: "0 0 0 0 rgba(0,0,0,0)" },
                 };
 
                 return (
@@ -186,11 +214,8 @@ export default function Home() {
                     initial={false}
                     animate={variants[position as keyof typeof variants]}
                     transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-                    className="absolute w-[70vw] sm:w-[50vw] md:w-[40vw] lg:w-[32vw] aspect-[4/5] shadow-2xl overflow-hidden cursor-pointer bg-stone rounded-sm"
-                    onClick={() => {
-                       if (position === "right") nextProject();
-                       else if (position === "left") prevProject();
-                    }}
+                    className="absolute w-[60vw] sm:w-[45vw] md:w-[32vw] lg:w-[24vw] aspect-[4/5] shadow-2xl overflow-hidden cursor-pointer bg-stone rounded-sm"
+                    onClick={() => setCurrentProject(idx)}
                   >
                     <ParallaxImage src={project.image} alt={project.title} speed={0} />
                     
@@ -209,8 +234,8 @@ export default function Home() {
                       animate={{ opacity: position === "center" ? 1 : 0, y: position === "center" ? 0 : 20 }}
                       transition={{ duration: 0.7 }}
                     >
-                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif mb-2 text-porcelain">{project.title}</h3>
-                      <p className="text-xs md:text-sm font-sans opacity-80 text-porcelain tracking-widest uppercase">{project.category}</p>
+                      <h3 className="text-xl md:text-2xl lg:text-3xl font-serif mb-2 text-porcelain">{project.title}</h3>
+                      <p className="text-[10px] md:text-xs font-sans opacity-80 text-porcelain tracking-widest uppercase">{project.category}</p>
                     </motion.div>
                   </motion.div>
                 );
@@ -220,21 +245,21 @@ export default function Home() {
               <div className="absolute top-1/2 -translate-y-1/2 left-2 right-2 md:left-8 md:right-8 flex justify-between z-40 pointer-events-none">
                 <button 
                   onClick={prevProject} 
-                  className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center bg-porcelain/90 backdrop-blur-sm text-ink hover:bg-ink hover:text-porcelain transition-all duration-300 shadow-xl pointer-events-auto rounded-full"
+                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-porcelain/90 backdrop-blur-sm text-ink hover:bg-ink hover:text-porcelain transition-all duration-300 shadow-xl pointer-events-auto rounded-full"
                 >
-                  <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
+                  <ArrowLeft className="w-4 h-4" />
                 </button>
                 <button 
                   onClick={nextProject} 
-                  className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center bg-porcelain/90 backdrop-blur-sm text-ink hover:bg-ink hover:text-porcelain transition-all duration-300 shadow-xl pointer-events-auto rounded-full"
+                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-porcelain/90 backdrop-blur-sm text-ink hover:bg-ink hover:text-porcelain transition-all duration-300 shadow-xl pointer-events-auto rounded-full"
                 >
-                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
 
             {/* View All Button */}
-            <div className="mt-10">
+            <div className="mt-8 md:mt-10">
               <Link to="/portfolio" className="inline-flex items-center justify-center bg-ink text-porcelain px-10 py-5 text-sm font-sans tracking-[0.15em] hover:bg-ink/85 hover:scale-[1.02] transition-all duration-300 group">
                 View All Projects <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
               </Link>
@@ -244,7 +269,7 @@ export default function Home() {
         </section>
 
         {/* Section 4: Philosophy / Interactive Crossfade Section */}
-        <section className="relative min-h-[80vh] flex flex-col justify-center overflow-hidden bg-ink py-24 md:py-32">
+        <section className="relative min-h-[65vh] lg:min-h-[80vh] flex flex-col justify-center overflow-hidden bg-ink py-12 md:py-20 lg:py-32">
           
           {/* Background Images Crossfade */}
           {philosophyImages.map((img, idx) => (
@@ -262,7 +287,7 @@ export default function Home() {
           
           <div className="max-w-[1440px] w-full mx-auto px-5 md:px-8 xl:px-18 relative z-10 flex flex-col items-center text-center">
             
-            <p className="font-script text-3xl md:text-4xl text-porcelain mb-12 md:mb-16 capitalize">
+            <p className="font-script text-3xl md:text-4xl text-porcelain mb-8 md:mb-12 lg:mb-16 capitalize">
               — The Studio Philosophy
             </p>
             
@@ -300,7 +325,7 @@ export default function Home() {
         {/* Section 5: Animated Stats Section */}
         <section className="py-12 md:py-20 bg-porcelain relative z-10">
           <div className="max-w-[1440px] w-full mx-auto px-5 md:px-8 xl:px-18">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 border-y border-ink/10 py-10 md:py-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-ink/10 py-10 md:py-16">
               <AnimatedNumber value={150} label="Projects Completed" />
               <AnimatedNumber value={15} label="Years Experience" />
               <AnimatedNumber value={25} label="Design Awards" />
@@ -308,6 +333,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Section 6: Testimonials Layout from Image Reference */}
+        <Testimonials />
 
       </main>
       <Footer />

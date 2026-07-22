@@ -5,13 +5,114 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import ParallaxImage from "@/components/ParallaxImage";
-import { LayoutGrid, List } from "lucide-react";
+import { LayoutGrid, List, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
 
 const categories = ["All", "Residential", "Hospitality", "Commercial", "Retail", "Farm Houses", "Furniture"];
+
+function EditorialCard({ project }: { project: typeof projects[0] }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Combine hero image with up to 3 gallery images
+  const images = [
+    project.heroImage,
+    ...(project.galleries[0]?.images.slice(0, 3) || [])
+  ];
+
+  const nextSlide = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const setSlide = (e: React.MouseEvent, index: number) => {
+    e.preventDefault();
+    setCurrentIndex(index);
+  };
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="group col-span-1 flex flex-col"
+    >
+      <Link to={`/portfolio/${project.id}`} className="block relative w-full aspect-[4/5] overflow-hidden mb-5 bg-stone">
+        
+        {/* Images */}
+        <AnimatePresence initial={false} mode="wait">
+          <motion.img
+            key={currentIndex}
+            src={images[currentIndex]}
+            alt={`${project.title} - ${currentIndex + 1}`}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2000ms]"
+          />
+        </AnimatePresence>
+        
+        {/* Overlay gradient for dots visibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+        {/* Carousel Controls (Arrows) */}
+        {images.length > 1 && (
+          <>
+            <button 
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-porcelain/10 backdrop-blur-md text-porcelain opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-porcelain/30 z-10"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-porcelain/10 backdrop-blur-md text-porcelain opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-porcelain/30 z-10"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            {/* Dots */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center items-center space-x-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={(e) => setSlide(e, idx)}
+                  className={cn(
+                    "h-1.5 rounded-full transition-all duration-300",
+                    currentIndex === idx ? "bg-porcelain w-3" : "bg-porcelain/50 hover:bg-porcelain/80 w-1.5"
+                  )}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </Link>
+
+      {/* Text Hierarchy */}
+      <Link to={`/portfolio/${project.id}`} className="block flex-1 flex flex-col justify-between">
+        <div>
+          <div className="flex justify-between items-baseline mb-2">
+            <h3 className="text-2xl font-serif group-hover:translate-x-1 transition-transform duration-500">{project.title}</h3>
+            <span className="text-xs font-sans tracking-[0.2em] opacity-40 ml-4">{project.year}</span>
+          </div>
+          <p className="text-[10px] md:text-xs font-sans uppercase tracking-[0.15em] opacity-60">
+            {project.category} <span className="mx-2 opacity-30">/</span> {project.location}
+          </p>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -22,10 +123,10 @@ export default function Portfolio() {
   return (
     <PageTransition>
       <Header theme="light" />
-      <main className="min-h-screen bg-porcelain pb-24 text-ink">
+      <main className="min-h-screen bg-porcelain pb-16 md:pb-24 text-ink">
         
         {/* Hero */}
-        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-40 pb-16 md:pb-24 overflow-hidden bg-ink">
+        <section className="relative min-h-[65vh] lg:min-h-[80vh] w-full flex flex-col justify-end pt-24 lg:pt-40 pb-10 md:pb-16 lg:pb-16 md:pb-24 overflow-hidden bg-ink">
           <div className="absolute inset-0 z-0">
             <ParallaxImage
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000"
@@ -107,32 +208,9 @@ export default function Portfolio() {
                 exit={{ opacity: 0 }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               >
-                {filteredProjects.map((project, idx) => {
-                  return (
-                    <motion.div
-                      layout
-                      key={project.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                      className="group cursor-none col-span-1" // cursor-none for custom cursor to say "View"
-                    >
-                      <Link to={`/portfolio/${project.id}`} className="block">
-                        <div className="relative w-full overflow-hidden mb-6 bg-stone aspect-[4/5]">
-                          <ParallaxImage src={project.heroImage} alt={project.title} className="transform group-hover:scale-105 transition-transform duration-1000" />
-                        </div>
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <h3 className="text-xl md:text-2xl font-serif mb-2 group-hover:translate-x-2 transition-transform duration-500">{project.title}</h3>
-                            <p className="text-xs md:text-sm font-sans uppercase tracking-widest opacity-50">{project.category} · {project.location}</p>
-                          </div>
-                          <span className="text-xs md:text-sm font-sans opacity-50">{project.year}</span>
-                        </div>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
+                {filteredProjects.map((project) => (
+                  <EditorialCard key={project.id} project={project} />
+                ))}
               </motion.div>
             ) : (
               <motion.div

@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <PageTransition>
       <Header />
-      <main className="min-h-screen bg-stone flex flex-col justify-center items-center pt-32 pb-24 px-5">
+      <main className="min-h-screen bg-stone flex flex-col justify-center items-center pt-24 pb-16 md:pt-32 md:pb-16 md:pb-24 px-5">
         <div className="max-w-2xl mx-auto text-center">
           <span className="text-xs md:text-sm font-sans uppercase tracking-[0.2em] mb-6 opacity-60 block">Error 404</span>
           

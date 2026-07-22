@@ -32,10 +32,10 @@ export default function Press() {
   return (
     <PageTransition>
       <Header theme="light" />
-      <main className="min-h-screen bg-porcelain pb-24 text-ink">
+      <main className="min-h-screen bg-porcelain pb-16 md:pb-24 text-ink">
 
         {/* Hero */}
-        <section className="relative min-h-[80vh] w-full flex flex-col justify-end pt-32 lg:pt-40 pb-16 md:pb-24 overflow-hidden bg-ink">
+        <section className="relative min-h-[65vh] lg:min-h-[80vh] w-full flex flex-col justify-end pt-24 lg:pt-40 pb-10 md:pb-16 lg:pb-16 md:pb-24 overflow-hidden bg-ink">
           <div className="absolute inset-0 z-0">
             <ParallaxImage
               src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=2000"
@@ -62,7 +62,7 @@ export default function Press() {
 
         {/* Featured Press */}
         {featured && (
-          <section className="px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto mb-16 md:mb-24">
+          <section className="px-5 md:px-8 xl:px-18 max-w-[1440px] mx-auto mb-10 md:mb-16 lg:mb-24">
             <a href="#" className="group block">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0 items-center">
                 <div className="md:col-span-8 overflow-hidden">

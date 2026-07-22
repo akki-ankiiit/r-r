@@ -125,7 +125,7 @@ export default function Footer() {
         <div className="max-w-[1440px] mx-auto px-5 md:px-8 xl:px-18 relative z-10">
 
           {/* Top Section */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 pb-20 border-b border-ink/10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-20 border-b border-ink/10">
 
             {/* Brand Info */}
             <div className="md:col-span-4 flex flex-col items-start">
